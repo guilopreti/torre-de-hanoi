@@ -1,0 +1,35 @@
+body{
+    display: flex;
+    justify-content: space-around;
+    height: 100vh;
+    align-items: center;
+}
+
+.torre{
+    background: black;
+    height: 200px;
+    width: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.medio{
+    background-color: aqua;
+    height: 50px;
+    width: 100px;
+    margin-left: -37px;
+}
+
+.maior{
+    background-color: blueviolet;
+    height: 50px;
+    width: 150px;
+    margin-left: -58px;
+}
+
+.menor{
+    background-color: chartreuse;
+    width: 50px;
+    height: 50px;
+    margin-left: -14px;
+}
