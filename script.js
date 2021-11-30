@@ -9,20 +9,40 @@ const torreOffset =  document.createElement("section")
 torreOffset.classList.add("torre")
 const torreEnd =  document.createElement("section")
 torreEnd.classList.add("torre")
+
+
+
+
+body.appendChild(torreStart)
+body.appendChild(torreOffset)
+body.appendChild(torreEnd)
+
 // estilo da base das torres
 const baseTorre = document.createElement("div")
 baseTorre.classList.add("baseTorre")
 const baseTexto = document.createElement("p")
 baseTexto.classList.add("baseTexto")
+const boxVisorTorres = document.createElement("div")
+boxVisorTorres.classList.add("boxVisorTorres")
+
+//------------------------------------
+
+//seção da base e visor das torres
+const secaoBaseVisor = document.createElement("section")
+secaoBaseVisor.classList.add("secaoBaseVisor")
+//----------------------------------------------------
+
+//adiciona a base das torres, box do visor das torres e textos em uma seção
+secaoBaseVisor.appendChild(baseTorre)
+secaoBaseVisor.appendChild(boxVisorTorres)
+//--------------------------------------
+
+//adiciona a base das torres, box do visor das torres e textos com a body
+body.appendChild(secaoBaseVisor)
 baseTorre.appendChild(baseTexto)
 baseTexto.innerText = "Torre de Hanói"
-//------------------------------------
-body.appendChild(torreStart)
-body.appendChild(torreOffset)
-body.appendChild(torreEnd)
-//adiciona uma base para as torres
-body.appendChild(baseTorre)
 //-------------------------------------
+
 const discoMaior = document.createElement("div")
 discoMaior.classList.add("discoLaranja")
 const discoMenor = document.createElement("div")
@@ -34,6 +54,7 @@ discoMedio.classList.add("discoVerde")
 torreStart.appendChild(discoMaior)
 torreStart.appendChild(discoMedio)
 torreStart.appendChild(discoMenor)
+
 
 
 //fim da criação de elementos
@@ -107,18 +128,18 @@ console.log(torreOffset.lastElementChild)
 //adiciona animação e borda no disco selecionado
 torreStart.addEventListener("click", function(){
     torreStart.lastElementChild.style.border = "1px solid black"
-    torreStart.lastElementChild.style.transform = "translate(0, -10vh)"
-    
-   
-    
+    torreStart.lastElementChild.style.transform = "translate(0, -20px)"
 })
 
 torreOffset.addEventListener("click", function(){
     torreOffset.lastElementChild.style.transform = "translate(0, 0)"
+   
 })
 
 torreEnd.addEventListener("click", function(){
     torreEnd.lastElementChild.style.transform = "translate(0, 0)"
+    torreStart.lastElementChild.style.transform = "translate(0, 0)"
+
 })
 //------------------------------------------------------
 
