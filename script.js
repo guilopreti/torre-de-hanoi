@@ -1,7 +1,43 @@
 // INICIO GUILOPRETI
+
+//SELEÃO DE DIFICULDADE
+let todosBotoes = document.querySelectorAll("button")
+
+let botaoMedio = document.getElementById("medio")
+botaoMedio.addEventListener("click", function(){
+    jogoMedio.classList.remove("esconde")
+    for(let i = 0; i < todosBotoes.length; i++){
+        todosBotoes[i].classList.add("esconde")
+    }
+})
+
+let botaoFacil = document.getElementById("facil")
+botaoFacil.addEventListener("click", function(){
+    jogoFacil.classList.remove("esconde")
+    for(let i = 0; i < todosBotoes.length; i++){
+        todosBotoes[i].classList.add("esconde")
+    }
+})
+
+let botaoDificil = document.getElementById("dificil")
+botaoDificil.addEventListener("click", function(){
+    jogoDificil.classList.remove("esconde")
+    for(let i = 0; i < todosBotoes.length; i++){
+        todosBotoes[i].classList.add("esconde")
+    }
+})
+//
+
+//CRIAÇÃO TORRE 4 DISCOS
 const arrayBody = document.getElementsByTagName("body")
 const body = arrayBody[0]
 console.log(body)
+
+const jogoMedio = document.createElement("section")
+jogoMedio.classList.add("esconde")
+
+const jogo = document.createElement("section")
+jogo.classList.add("jogo")
 
 const torreStart =  document.createElement("section")
 torreStart.classList.add("torre")
@@ -11,9 +47,14 @@ const torreEnd =  document.createElement("section")
 torreEnd.classList.add("torre")
 
 
-body.appendChild(torreStart)
-body.appendChild(torreOffset)
-body.appendChild(torreEnd)
+jogo.appendChild(torreStart)
+jogo.appendChild(torreOffset)
+jogo.appendChild(torreEnd)
+
+jogoMedio.appendChild(jogo)
+
+body.appendChild(jogoMedio)
+
 
 const discoMaior = document.createElement("div")
 discoMaior.classList.add("discoLaranja")
@@ -21,12 +62,14 @@ const discoMenor = document.createElement("div")
 discoMenor.classList.add("discoRoxo")
 const discoMedio = document.createElement("div")
 discoMedio.classList.add("discoVerde")
+const discoBemGrande = document.createElement("div")
+discoBemGrande.classList.add("discoAzul")
 
+torreStart.appendChild(discoBemGrande)
 torreStart.appendChild(discoMaior)
 torreStart.appendChild(discoMedio)
 torreStart.appendChild(discoMenor)
 
-//fim da criação de elementos
 let arrayFilhos = []
 let arrayPais = []
 
@@ -49,7 +92,7 @@ function adicionarUltimoFilho(){
     
     
 }
-
+let filhoStart = torreStart.childElementCount
 
 
 torreStart.addEventListener("click", function(){
@@ -57,34 +100,80 @@ torreStart.addEventListener("click", function(){
     arrayPais.push(torreStart)
     if(arrayPais.length === 2){
         adicionarUltimoFilho()
+        oqueFazer.innerText = "Selecione um disco"
     }    
-    if(torreEnd.childElementCount === 3){
+    if(arrayPais.length === 1 && arrayFilhos[0] !== null){
+        oqueFazer.innerText = "Selecione a torre"
+    }
+    if(arrayPais.length === 1 && arrayFilhos[0] === null){
+        oqueFazer.innerText = "Esta torre está vazia, clique nela novamente!"
+    }
+    if(torreStart.childElementCount !== filhoStart){
+        soma += 1
+        contMovimento.innerText = `Contador: ${soma}`
+        filhoEnd = torreEnd.childElementCount
+        filhoOffset = torreOffset.childElementCount
+        filhoStart = torreStart.childElementCount
+    }
+    if(torreEnd.childElementCount === 4){
         if(confirm("Você Venceu")){
             window.location.reload()
         }
     }
 })
+
+let filhoOffset = torreOffset.childElementCount
 
 torreOffset.addEventListener("click", function(){
     arrayFilhos.push(torreOffset.lastElementChild)
     arrayPais.push(torreOffset)
     if(arrayPais.length === 2){
         adicionarUltimoFilho()
+        oqueFazer.innerText = "Selecione um disco"
     }    
-    if(torreEnd.childElementCount === 3){
+    if(arrayPais.length === 1 && arrayFilhos[0] !== null){
+        oqueFazer.innerText = "Selecione a torre"
+    }
+    if(arrayPais.length === 1 && arrayFilhos[0] === null){
+        oqueFazer.innerText = "Esta torre está vazia, clique nela novamente!"
+    }
+    if(torreOffset.childElementCount !== filhoOffset){
+        soma += 1
+        contMovimento.innerText = `Contador: ${soma}`
+        filhoEnd = torreEnd.childElementCount
+        filhoOffset = torreOffset.childElementCount
+        filhoStart = torreStart.childElementCount
+    }
+    if(torreEnd.childElementCount === 4){
         if(confirm("Você Venceu")){
             window.location.reload()
         }
     }
 })
 
+let filhoEnd = torreEnd.childElementCount
+
 torreEnd.addEventListener("click", function(){
     arrayFilhos.push(torreEnd.lastElementChild)
     arrayPais.push(torreEnd)
     if(arrayPais.length === 2){
         adicionarUltimoFilho()
+        oqueFazer.innerText = "Selecione um disco"
     }    
-    if(torreEnd.childElementCount === 3){
+    if(arrayPais.length === 1 && arrayFilhos[0] !== null){
+        oqueFazer.innerText = "Selecione a torre"
+    }
+    if(arrayPais.length === 1 && arrayFilhos[0] === null){
+        oqueFazer.innerText = "Esta torre está vazia, clique nela novamente!"
+    }
+    if(torreEnd.childElementCount !== filhoEnd){
+        soma += 1
+        contMovimento.innerText = `Contador: ${soma}`
+        filhoEnd = torreEnd.childElementCount
+        filhoOffset = torreOffset.childElementCount
+        filhoStart = torreStart.childElementCount
+    }
+    if(torreEnd.childElementCount === 4){
         if(confirm("Você Venceu")){
             window.location.reload()
         }
@@ -92,4 +181,350 @@ torreEnd.addEventListener("click", function(){
 })
 
 console.log(torreOffset.lastElementChild)
+
+
+let oqueFazer = document.createElement("p")
+oqueFazer.innerText = "Selecione um disco"
+oqueFazer.classList.add("instruçao")
+
+jogoMedio.appendChild(oqueFazer)
+
+let soma = 0
+let contMovimento = document.createElement("span")
+contMovimento.innerText = "Contador:"
+contMovimento.classList.add("contador")
+
+jogoMedio.appendChild(contMovimento)
+//FINALIZAÇÃO TORRE 4 DISCOS
+
+//CRIANDO MODO 3 DISCOS
+
+const jogoFacil = document.createElement("section")
+jogoFacil.classList.add("esconde")
+
+const jogoFc = document.createElement("section")
+jogoFc.classList.add("jogo")
+
+const torreStartFacil =  document.createElement("section")
+torreStartFacil.classList.add("torre")
+const torreOffsetFacil =  document.createElement("section")
+torreOffsetFacil.classList.add("torre")
+const torreEndFacil =  document.createElement("section")
+torreEndFacil.classList.add("torre")
+
+
+jogoFc.appendChild(torreStartFacil)
+jogoFc.appendChild(torreOffsetFacil)
+jogoFc.appendChild(torreEndFacil)
+
+jogoFacil.appendChild(jogoFc)
+
+body.appendChild(jogoFacil)
+
+
+const discoMaiorFacil = document.createElement("div")
+discoMaiorFacil.classList.add("discoLaranja")
+const discoMenorFacil = document.createElement("div")
+discoMenorFacil.classList.add("discoRoxo")
+const discoMedioFacil = document.createElement("div")
+discoMedioFacil.classList.add("discoVerde")
+
+torreStartFacil.appendChild(discoMaiorFacil)
+torreStartFacil.appendChild(discoMedioFacil)
+torreStartFacil.appendChild(discoMenorFacil)
+
+let arrayFilhosFacil = []
+let arrayPaisFacil = []
+
+function adicionarUltimoFilhoFacil(){
+
+    let larguraUmFacil = arrayFilhosFacil[0]
+    let larguraDoisFacil = arrayPaisFacil[1].lastElementChild
+
+    if(larguraUmFacil === null){
+        arrayFilhosFacil = []
+        arrayPaisFacil = []
+    } else if(larguraDoisFacil === null || larguraUmFacil.clientWidth < larguraDoisFacil.clientWidth){
+        arrayPaisFacil[1].appendChild(arrayFilhosFacil[0])
+        arrayPaisFacil = []
+        arrayFilhosFacil = []
+    } else{
+        arrayPaisFacil = []
+        arrayFilhosFacil = []
+    }
+    
+    
+}
+let filhoStartFacil = torreStartFacil.childElementCount
+
+
+torreStartFacil.addEventListener("click", function(){
+    arrayFilhosFacil.push(torreStartFacil.lastElementChild)
+    arrayPaisFacil.push(torreStartFacil)
+    if(arrayPaisFacil.length === 2){
+        adicionarUltimoFilhoFacil()
+        oqueFazerFacil.innerText = "Selecione um disco"
+    }    
+    if(arrayPaisFacil.length === 1 && arrayFilhosFacil[0] !== null){
+        oqueFazerFacil.innerText = "Selecione a torre"
+    }
+    if(arrayPaisFacil.length === 1 && arrayFilhosFacil[0] === null){
+        oqueFazerFacil.innerText = "Esta torre está vazia, clique nela novamente!"
+    }
+    if(torreStartFacil.childElementCount !== filhoStartFacil){
+        somaFacil += 1
+        contMovimentoFacil.innerText = `Contador: ${somaFacil}`
+        filhoEndFacil = torreEndFacil.childElementCount
+        filhoOffsetFacil = torreOffsetFacil.childElementCount
+        filhoStartFacil = torreStartFacil.childElementCount
+    }
+    if(torreEndFacil.childElementCount === 3){
+        if(confirm("Você Venceu")){
+            window.location.reload()
+        }
+    }
+})
+
+let filhoOffsetFacil = torreOffsetFacil.childElementCount
+
+torreOffsetFacil.addEventListener("click", function(){
+    arrayFilhosFacil.push(torreOffsetFacil.lastElementChild)
+    arrayPaisFacil.push(torreOffsetFacil)
+    if(arrayPaisFacil.length === 2){
+        adicionarUltimoFilhoFacil()
+        oqueFazerFacil.innerText = "Selecione um disco"
+    }    
+    if(arrayPaisFacil.length === 1 && arrayFilhosFacil[0] !== null){
+        oqueFazerFacil.innerText = "Selecione a torre"
+    }
+    if(arrayPaisFacil.length === 1 && arrayFilhosFacil[0] === null){
+        oqueFazerFacil.innerText = "Esta torre está vazia, clique nela novamente!"
+    }
+    if(torreOffsetFacil.childElementCount !== filhoOffsetFacil){
+        somaFacil += 1
+        contMovimentoFacil.innerText = `Contador: ${somaFacil}`
+        filhoEndFacil = torreEndFacil.childElementCount
+        filhoOffsetFacil = torreOffsetFacil.childElementCount
+        filhoStartFacil = torreStartFacil.childElementCount
+    }
+    if(torreEndFacil.childElementCount === 3){
+        if(confirm("Você Venceu")){
+            window.location.reload()
+        }
+    }
+})
+
+let filhoEndFacil = torreEndFacil.childElementCount
+
+torreEndFacil.addEventListener("click", function(){
+    arrayFilhosFacil.push(torreEndFacil.lastElementChild)
+    arrayPaisFacil.push(torreEndFacil)
+    if(arrayPaisFacil.length === 2){
+        adicionarUltimoFilhoFacil()
+        oqueFazerFacil.innerText = "Selecione um disco"
+    }    
+    if(arrayPaisFacil.length === 1 && arrayFilhosFacil[0] !== null){
+        oqueFazerFacil.innerText = "Selecione a torre"
+    }
+    if(arrayPaisFacil.length === 1 && arrayFilhosFacil[0] === null){
+        oqueFazerFacil.innerText = "Esta torre está vazia, clique nela novamente!"
+    }
+    if(torreEndFacil.childElementCount !== filhoEndFacil){
+        somaFacil += 1
+        contMovimentoFacil.innerText = `Contador: ${somaFacil}`
+        filhoEndFacil = torreEndFacil.childElementCount
+        filhoOffsetFacil = torreOffsetFacil.childElementCount
+        filhoStartFacil = torreStartFacil.childElementCount
+    }
+    if(torreEndFacil.childElementCount === 3){
+        if(confirm("Você Venceu")){
+            window.location.reload()
+        }
+    }
+})
+
+
+let oqueFazerFacil = document.createElement("p")
+oqueFazerFacil.innerText = "Selecione um disco"
+oqueFazerFacil.classList.add("instruçao")
+
+jogoFacil.appendChild(oqueFazerFacil)
+
+let somaFacil = 0
+let contMovimentoFacil = document.createElement("span")
+contMovimentoFacil.innerText = "Contador:"
+contMovimentoFacil.classList.add("contador")
+
+jogoFacil.appendChild(contMovimentoFacil)
+//FINALIZAÇÃO TORRE 3 DISCOS
+
+
+//CRIANDO MODO 5 DISCOS
+
+const jogoDificil = document.createElement("section")
+jogoDificil.classList.add("esconde")
+
+const jogoDf = document.createElement("section")
+jogoDf.classList.add("jogo")
+
+const torreStartDificil =  document.createElement("section")
+torreStartDificil.classList.add("torre")
+const torreOffsetDificil =  document.createElement("section")
+torreOffsetDificil.classList.add("torre")
+const torreEndDificil =  document.createElement("section")
+torreEndDificil.classList.add("torre")
+
+
+jogoDf.appendChild(torreStartDificil)
+jogoDf.appendChild(torreOffsetDificil)
+jogoDf.appendChild(torreEndDificil)
+
+jogoDificil.appendChild(jogoDf)
+
+body.appendChild(jogoDificil)
+
+
+const discoMaiorDificil = document.createElement("div")
+discoMaiorDificil.classList.add("discoLaranja")
+const discoMenorDificil = document.createElement("div")
+discoMenorDificil.classList.add("discoRoxo")
+const discoMedioDificil = document.createElement("div")
+discoMedioDificil.classList.add("discoVerde")
+const discoBemGrandeDificil = document.createElement("div")
+discoBemGrandeDificil.classList.add("discoAzul")
+const discoColossal = document.createElement("div")
+discoColossal.classList.add("discoIndefinido")
+
+torreStartDificil.appendChild(discoColossal)
+torreStartDificil.appendChild(discoBemGrandeDificil)
+torreStartDificil.appendChild(discoMaiorDificil)
+torreStartDificil.appendChild(discoMedioDificil)
+torreStartDificil.appendChild(discoMenorDificil)
+
+let arrayFilhosDificil = []
+let arrayPaisDificil = []
+
+function adicionarUltimoFilhoDificil(){
+
+    let larguraUmDificil = arrayFilhosDificil[0]
+    let larguraDoisDificil = arrayPaisDificil[1].lastElementChild
+
+    if(larguraUmDificil === null){
+        arrayFilhosDificil = []
+        arrayPaisDificil = []
+    } else if(larguraDoisDificil === null || larguraUmDificil.clientWidth < larguraDoisDificil.clientWidth){
+        arrayPaisDificil[1].appendChild(arrayFilhosDificil[0])
+        arrayPaisDificil = []
+        arrayFilhosDificil = []
+    } else{
+        arrayPaisDificil = []
+        arrayFilhosDificil = []
+    }
+    
+    
+}
+let filhoStartDificil = torreStartDificil.childElementCount
+
+
+torreStartDificil.addEventListener("click", function(){
+    arrayFilhosDificil.push(torreStartDificil.lastElementChild)
+    arrayPaisDificil.push(torreStartDificil)
+    if(arrayPaisDificil.length === 2){
+        adicionarUltimoFilhoDificil()
+        oqueFazerDificil.innerText = "Selecione um disco"
+    }    
+    if(arrayPaisDificil.length === 1 && arrayFilhosDificil[0] !== null){
+        oqueFazerDificil.innerText = "Selecione a torre"
+    }
+    if(arrayPaisDificil.length === 1 && arrayFilhosDificil[0] === null){
+        oqueFazerDificil.innerText = "Esta torre está vazia, clique nela novamente!"
+    }
+    if(torreStartDificil.childElementCount !== filhoStartDificil){
+        somaDificil += 1
+        contMovimentoDificil.innerText = `Contador: ${somaDificil}`
+        filhoEndDificil = torreEndDificil.childElementCount
+        filhoOffsetDificil = torreOffsetDificil.childElementCount
+        filhoStartDificil = torreStartDificil.childElementCount
+    }
+    if(torreEndDificil.childElementCount === 5){
+        if(confirm("Você Venceu")){
+            window.location.reload()
+        }
+    }
+})
+
+let filhoOffsetDificil = torreOffsetDificil.childElementCount
+
+torreOffsetDificil.addEventListener("click", function(){
+    arrayFilhosDificil.push(torreOffsetDificil.lastElementChild)
+    arrayPaisDificil.push(torreOffsetDificil)
+    if(arrayPaisDificil.length === 2){
+        adicionarUltimoFilhoDificil()
+        oqueFazerDificil.innerText = "Selecione um disco"
+    }    
+    if(arrayPaisDificil.length === 1 && arrayFilhosDificil[0] !== null){
+        oqueFazerDificil.innerText = "Selecione a torre"
+    }
+    if(arrayPaisDificil.length === 1 && arrayFilhosDificil[0] === null){
+        oqueFazerDificil.innerText = "Esta torre está vazia, clique nela novamente!"
+    }
+    if(torreOffsetDificil.childElementCount !== filhoOffsetDificil){
+        somaDificil += 1
+        contMovimentoDificil.innerText = `Contador: ${somaDificil}`
+        filhoEndDificil = torreEndDificil.childElementCount
+        filhoOffsetDificil = torreOffsetDificil.childElementCount
+        filhoStartDificil = torreStartDificil.childElementCount
+    }
+    if(torreEndDificil.childElementCount === 5){
+        if(confirm("Você Venceu")){
+            window.location.reload()
+        }
+    }
+})
+
+let filhoEndDificil = torreEndDificil.childElementCount
+
+torreEndDificil.addEventListener("click", function(){
+    arrayFilhosDificil.push(torreEndDificil.lastElementChild)
+    arrayPaisDificil.push(torreEndDificil)
+    if(arrayPaisDificil.length === 2){
+        adicionarUltimoFilhoDificil()
+        oqueFazerDificil.innerText = "Selecione um disco"
+    }    
+    if(arrayPaisDificil.length === 1 && arrayFilhosDificil[0] !== null){
+        oqueFazerDificil.innerText = "Selecione a torre"
+    }
+    if(arrayPaisDificil.length === 1 && arrayFilhosDificil[0] === null){
+        oqueFazerDificil.innerText = "Esta torre está vazia, clique nela novamente!"
+    }
+    if(torreEndDificil.childElementCount !== filhoEndDificil){
+        somaDificil += 1
+        contMovimentoDificil.innerText = `Contador: ${somaDificil}`
+        filhoEndDificil = torreEndDificil.childElementCount
+        filhoOffsetDificil = torreOffsetDificil.childElementCount
+        filhoStartDificil = torreStartDificil.childElementCount
+    }
+    if(torreEndDificil.childElementCount === 5){
+        if(confirm("Você Venceu")){
+            window.location.reload()
+        }
+    }
+})
+
+
+let oqueFazerDificil = document.createElement("p")
+oqueFazerDificil.innerText = "Selecione um disco"
+oqueFazerDificil.classList.add("instruçao")
+
+jogoDificil.appendChild(oqueFazerDificil)
+
+let somaDificil = 0
+let contMovimentoDificil = document.createElement("span")
+contMovimentoDificil.innerText = "Contador:"
+contMovimentoDificil.classList.add("contador")
+
+jogoDificil.appendChild(contMovimentoDificil)
+//FINALIZAÇÃO TORRE 5 DISCOS
+
 //FIM GUILOPRETI
+
