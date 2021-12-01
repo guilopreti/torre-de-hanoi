@@ -1,7 +1,7 @@
 /*centraliza o body e aplica um fundo ao body*/
 
 body{
-    display: flex;
+    
     max-width: 980px; 
     height: 450px;
     margin: 50px auto;
@@ -10,9 +10,23 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     justify-content: center;
-    align-items: center;
+    
     
 } 
+.btnSection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-image: url("bg-rounded.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    width: 500px;
+    margin: 0 auto;
+   
+}
+
 /*botões do jogo*/
 button{
     height: 50px;
@@ -20,7 +34,7 @@ button{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 25px;
+    margin: 10px;
     padding: 10px;
     box-shadow: 3px 3px #22212177;
     border: 0.8px solid #00000071;
