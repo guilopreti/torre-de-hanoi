@@ -1,52 +1,75 @@
 /*centraliza o body e aplica um fundo ao body*/
 
 body{
-    
     max-width: 980px; 
-    height: 450px;
-    margin: 50px auto;
+    height: 100vh;
+    margin: 0 auto;
     background-image: url("puzzle.jpg"); 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     justify-content: center;
-    
+    font-size: 62.5%;
     
 } 
 .btnSection{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
     height: 100%;
     background-image: url("bg-rounded.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 80%;
-    width: 500px;
-    margin: 0 auto;
-   
+    background-size: 45%;
+    width: 100%;
+    max-width: 500px;
 }
 
+.btnSection button{
+    margin-bottom: 10px;
+}
+.menuTitle{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif; 
+    background-image: url("fundo-base.jpg");
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: #d9d3d3b5;
+    -webkit-text-stroke: 1px #1a0c00;
+}
+.menuSubTitle{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("fundo-base.jpg");
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: #d9d3d3b5;
+    -webkit-text-stroke: 1px #ffffff00;
+}
 /*botões do jogo*/
 button{
-    height: 50px;
-    background-image: url("fundo-base.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 10px;
-    padding: 10px;
-    box-shadow: 3px 3px #22212177;
-    border: 0.8px solid #00000071;
-    border-radius: 15px;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    -webkit-text-stroke: 0.8px #1a0c00;
-    
+      padding: 5px;
+      background-image: url("fundo-base.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      box-shadow: 3px 3px #22212177;
+      border: 0.8px solid #00000071;
+      border-radius: 15px;
+      font-size: 1em;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      -webkit-text-stroke: 0.8px #1a0c00;
+      box-sizing: border-box
 }
 button:hover{
-    border: 2px solid #f3eeee71;
+     
+    border: 0.8px solid #f3eeee71;
     transition: all .4s ease;
 }
 
@@ -139,7 +162,7 @@ button:focus{
     background-color: #d7d7d75c;
     -webkit-text-stroke: 0.8px #000000;
     padding: 5px 25px;
-    font-size: 15px;
+    font-size: 1em;
     border-radius: 5px;
     border: 1px solid #0000008c;
 }
@@ -153,7 +176,7 @@ button:focus{
     background-color: #d7d7d75c;
     -webkit-text-stroke: 0.8px #000000;
     padding: 5px 25px;
-    font-size: 15px;
+    font-size: 1em;
     border-radius: 5px;
     border: 1px solid #0000008c;
 }
@@ -200,7 +223,7 @@ button:focus{
 }
 .boxVisorTorres{
     width: 100%;
-    height: 25px;
+    /* height: 25px; */
     max-width: 980px;
     margin-top: -6px;
     display: flex;
@@ -252,8 +275,23 @@ button:focus{
         font-size: 25px;
     }
     
+    .btnSection button{
+        padding:15px 24px ;
+        font-size: 15px;
+    }
 
-
+    button{
+        padding: 10px;
+        font-size: 15px;
+    }
+    .instruçao{
+        padding: 10px;
+        font-size: 15px;
+    }
+    .contador{
+        padding: 10px;
+        font-size: 15px;
+    }
 }
 
 
