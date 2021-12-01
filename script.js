@@ -255,6 +255,38 @@ jogoFacil.appendChild(jogoFc)
 
 body.appendChild(jogoFacil)
 
+// estilo da base das torres
+const baseTorreFacil = document.createElement("div")
+baseTorreFacil.classList.add("baseTorre")
+
+
+const baseTextoFacil = document.createElement("p")
+baseTextoFacil.classList.add("baseTexto")
+
+baseTorreFacil.appendChild(baseTextoFacil)
+
+
+const boxVisorTorresFacil = document.createElement("div")
+boxVisorTorresFacil.classList.add("boxVisorTorres")
+
+//------------------------------------
+
+//seção da base e visor das torres
+const secaoBaseVisorFacil = document.createElement("section")
+secaoBaseVisorFacil.classList.add("secaoBaseVisor")
+//----------------------------------------------------
+
+//adiciona a base das torres, box do visor das torres e textos em uma seção
+secaoBaseVisorFacil.appendChild(baseTorreFacil)
+secaoBaseVisorFacil.appendChild(boxVisorTorresFacil)
+//--------------------------------------
+
+//adiciona a base das torres, box do visor das torres e textos com a body
+jogoFc.appendChild(secaoBaseVisorFacil)
+
+baseTextoFacil.innerText = "Torre de Hanói"
+//-------------------------------------
+
 
 const discoMaiorFacil = document.createElement("div")
 discoMaiorFacil.classList.add("discoLaranja")
@@ -382,14 +414,14 @@ let oqueFazerFacil = document.createElement("p")
 oqueFazerFacil.innerText = "Selecione um disco"
 oqueFazerFacil.classList.add("instruçao")
 
-jogoFacil.appendChild(oqueFazerFacil)
+boxVisorTorresFacil.appendChild(oqueFazerFacil)
 
 let somaFacil = 0
 let contMovimentoFacil = document.createElement("span")
 contMovimentoFacil.innerText = "Contador:"
 contMovimentoFacil.classList.add("contador")
 
-jogoFacil.appendChild(contMovimentoFacil)
+boxVisorTorresFacil.appendChild(contMovimentoFacil)
 //FINALIZAÇÃO TORRE 3 DISCOS
 
 
@@ -416,6 +448,38 @@ jogoDf.appendChild(torreEndDificil)
 jogoDificil.appendChild(jogoDf)
 
 body.appendChild(jogoDificil)
+
+// estilo da base das torres
+const baseTorreDificil = document.createElement("div")
+baseTorreDificil.classList.add("baseTorre")
+
+
+const baseTextoDificil = document.createElement("p")
+baseTextoDificil.classList.add("baseTexto")
+
+baseTorreDificil.appendChild(baseTextoDificil)
+
+
+const boxVisorTorresDificil = document.createElement("div")
+boxVisorTorresDificil.classList.add("boxVisorTorres")
+
+//------------------------------------
+
+//seção da base e visor das torres
+const secaoBaseVisorDificil = document.createElement("section")
+secaoBaseVisorDificil.classList.add("secaoBaseVisor")
+//----------------------------------------------------
+
+//adiciona a base das torres, box do visor das torres e textos em uma seção
+secaoBaseVisorDificil.appendChild(baseTorreDificil)
+secaoBaseVisorDificil.appendChild(boxVisorTorresDificil)
+//--------------------------------------
+
+//adiciona a base das torres, box do visor das torres e textos com a body
+jogoDf.appendChild(secaoBaseVisorDificil)
+
+baseTextoDificil.innerText = "Torre de Hanói"
+//-------------------------------------
 
 
 const discoMaiorDificil = document.createElement("div")
@@ -550,14 +614,14 @@ let oqueFazerDificil = document.createElement("p")
 oqueFazerDificil.innerText = "Selecione um disco"
 oqueFazerDificil.classList.add("instruçao")
 
-jogoDificil.appendChild(oqueFazerDificil)
+boxVisorTorresDificil.appendChild(oqueFazerDificil)
 
 let somaDificil = 0
 let contMovimentoDificil = document.createElement("span")
 contMovimentoDificil.innerText = "Contador:"
 contMovimentoDificil.classList.add("contador")
 
-jogoDificil.appendChild(contMovimentoDificil)
+boxVisorTorresDificil.appendChild(contMovimentoDificil)
 //FINALIZAÇÃO TORRE 5 DISCOS
 
 //FIM GUILOPRETI
