@@ -1,4 +1,5 @@
 /*centraliza o body e aplica um fundo ao body*/
+
 body{
     max-width: 980px; 
     height: 450px;
@@ -7,10 +8,31 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    justify-content: center
-  
+    justify-content: center;
     
 } 
+button{
+    background-image: url("fundo-base.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px;
+    box-shadow: 3px 3px #22212177;
+    border: 0.8px solid #00000071;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    -webkit-text-stroke: 0.8px #1a0c00;
+}
+button:hover{
+    border: 2px solid #f3eeee71;
+    transition: all .4s ease;
+}
+
+button:focus{
+    border: 2px solid #817f7f71;
+    transition: all .4s ease;
+}
 
 .esconde{
     display: none;
@@ -22,12 +44,13 @@ body{
     justify-content: space-around;
     flex-wrap: wrap;
     margin: 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 
 .torre{
     width: 15px;
-    height: 150px
-;
+    height: 150px;
     display: flex;
     align-items: center;
     flex-direction: column-reverse;
@@ -149,7 +172,7 @@ body{
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-stroke: 0.8px #1a0c00;
-    font-weight: bold;
+    
 }
 .baseTexto:hover{
     -webkit-text-stroke: 0.2px #da9709b7;
