@@ -1,13 +1,15 @@
 // INICIO GUILOPRETI
 
-//SELEÃO DE DIFICULDADE
+//SELEÇÃO DE DIFICULDADE
 let todosBotoes = document.querySelectorAll("button")
 
 let botaoMedio = document.getElementById("medio")
 botaoMedio.addEventListener("click", function(){
     jogoMedio.classList.remove("esconde")
+    btnSection.classList.add("esconde")
     for(let i = 0; i < todosBotoes.length; i++){
         todosBotoes[i].classList.add("esconde")
+        
     }
     boxVisorTorres.appendChild(resetarTudo)
 })
@@ -15,6 +17,7 @@ botaoMedio.addEventListener("click", function(){
 let botaoFacil = document.getElementById("facil")
 botaoFacil.addEventListener("click", function(){
     jogoFacil.classList.remove("esconde")
+    btnSection.classList.add("esconde")
     for(let i = 0; i < todosBotoes.length; i++){
         todosBotoes[i].classList.add("esconde")
     }
@@ -24,6 +27,7 @@ botaoFacil.addEventListener("click", function(){
 let botaoDificil = document.getElementById("dificil")
 botaoDificil.addEventListener("click", function(){
     jogoDificil.classList.remove("esconde")
+    btnSection.classList.add("esconde")
     for(let i = 0; i < todosBotoes.length; i++){
         todosBotoes[i].classList.add("esconde")
     }
@@ -67,6 +71,31 @@ jogo.appendChild(torreEnd)
 jogoMedio.appendChild(jogo)
 
 body.appendChild(jogoMedio)
+
+//Cria uma seção e Centraliza os conteúdo dela
+const btnSection= document.createElement("section")
+const menuTitle = document.createElement("h1")
+const menuSubTitle = document.createElement("h2")
+btnSection.classList.add("btnSection")
+body.appendChild(btnSection)
+
+//adiciona o titulo e subtitulo na seção do menu 
+menuTitle.classList.add("menuTitle")
+menuTitle.innerText = "Jogo: Torre de Hanói"
+btnSection.appendChild(menuTitle)
+
+menuSubTitle.classList.add("menuSubTitle")
+menuSubTitle.innerText = "Escolha uma opção:"
+btnSection.appendChild(menuSubTitle)
+
+//adiciona os botões na seção do menu
+const arraybutoes = document.getElementsByTagName("button")
+const butoes1 = arraybutoes[0]
+const butoes2 = arraybutoes[1]
+const butoes3 = arraybutoes[2]
+btnSection.appendChild(butoes1)
+btnSection.appendChild(butoes2)
+btnSection.appendChild(butoes3)
 
 
 // estilo da base das torres
@@ -811,6 +840,7 @@ resetarTudo.addEventListener("click", function(){
     jogoDificil.classList.add("esconde")
     jogoFacil.classList.add("esconde")
     jogoMedio.classList.add("esconde")
+    btnSection.classList.remove("esconde")
     for(let i = 0; i < todosBotoes.length; i++){
         todosBotoes[i].classList.remove("esconde")
     }
