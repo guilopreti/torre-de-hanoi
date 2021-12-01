@@ -9,6 +9,7 @@ botaoMedio.addEventListener("click", function(){
     btnSection.classList.add("esconde")
     for(let i = 0; i < todosBotoes.length; i++){
         todosBotoes[i].classList.add("esconde")
+        
     }
     boxVisorTorres.appendChild(resetarTudo)
 })
@@ -806,6 +807,7 @@ resetarTudo.addEventListener("click", function(){
     jogoDificil.classList.add("esconde")
     jogoFacil.classList.add("esconde")
     jogoMedio.classList.add("esconde")
+    btnSection.classList.remove("esconde")
     for(let i = 0; i < todosBotoes.length; i++){
         todosBotoes[i].classList.remove("esconde")
     }
