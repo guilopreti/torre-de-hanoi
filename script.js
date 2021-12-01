@@ -10,6 +10,7 @@ botaoMedio.addEventListener("click", function(){
     for(let i = 0; i < todosBotoes.length; i++){
         todosBotoes[i].classList.add("esconde")
     }
+    boxVisorTorres.appendChild(resetarTudo)
 })
 
 let botaoFacil = document.getElementById("facil")
@@ -19,6 +20,7 @@ botaoFacil.addEventListener("click", function(){
     for(let i = 0; i < todosBotoes.length; i++){
         todosBotoes[i].classList.add("esconde")
     }
+    boxVisorTorresFacil.appendChild(resetarTudo)
 })
 
 let botaoDificil = document.getElementById("dificil")
@@ -28,6 +30,7 @@ botaoDificil.addEventListener("click", function(){
     for(let i = 0; i < todosBotoes.length; i++){
         todosBotoes[i].classList.add("esconde")
     }
+    boxVisorTorresDificil.appendChild(resetarTudo)
 })
 //
 
@@ -658,4 +661,153 @@ torreEnd.addEventListener("click", function(){
 })
 //------------------------------------------------------
 
+
+// let botaoReset = document.createElement("button")
+// botaoReset.innerText = "Começar Novamente"
+
+// botaoReset.addEventListener("click", function(){
+//     jogoFacil.classList.add("esconde")
+//     jogoDificil.classList.add("esconde")
+//     jogoMedio.classList.add("esconde")
+//     for(let i = 0; i < todosBotoes.length; i++){
+//         todosBotoes[i].classList.remove("esconde")
+//     }
+// })
+
+// body.appendChild(botaoReset)
+
+let resetarMedio = document.createElement("button")
+resetarMedio.innerText = "Recomeçar Modo"
+
+resetarMedio.addEventListener("click", function(){
+    torreStart.appendChild(discoBemGrande)
+    torreStart.appendChild(discoMaior)
+    torreStart.appendChild(discoMedio)
+    torreStart.appendChild(discoMenor)
+
+    arrayFilhos = []
+    arrayPais = []
+
+    filhoStart = torreStart.childElementCount
+    filhoOffset = torreOffset.childElementCount
+    filhoEnd = torreEnd.childElementCount
+
+    oqueFazer.innerText = "Selecione um disco"
+
+    soma = 0
+    contMovimento.innerText = "Contador:"
+})
+
+boxVisorTorres.appendChild(resetarMedio)
+
+let resetarFacil = document.createElement("button")
+resetarFacil.innerText = "Recomeçar Modo"
+
+resetarFacil.addEventListener("click", function(){
+    torreStartFacil.appendChild(discoMaiorFacil)
+    torreStartFacil.appendChild(discoMedioFacil)
+    torreStartFacil.appendChild(discoMenorFacil)
+
+    arrayFilhosFacil = []
+    arrayPaisFacil = []
+
+    filhoStartFacil = torreStartFacil.childElementCount
+    filhoOffsetFacil = torreOffsetFacil.childElementCount
+    filhoEndFacil = torreEndFacil.childElementCount
+
+    oqueFazerFacil.innerText = "Selecione um disco"
+
+    somaFacil = 0
+    contMovimentoFacil.innerText = "Contador:"
+})
+
+boxVisorTorresFacil.appendChild(resetarFacil)
+
+let resetarDificil = document.createElement("button")
+resetarDificil.innerText = "Recomeçar Modo"
+
+resetarDificil.addEventListener("click", function(){
+    torreStartDificil.appendChild(discoColossal)
+    torreStartDificil.appendChild(discoBemGrandeDificil)
+    torreStartDificil.appendChild(discoMaiorDificil)
+    torreStartDificil.appendChild(discoMedioDificil)
+    torreStartDificil.appendChild(discoMenorDificil)
+
+    arrayFilhosDificil = []
+    arrayPaisDificil = []
+
+    filhoStartDificil = torreStartDificil.childElementCount
+    filhoOffsetDificil = torreOffsetDificil.childElementCount
+    filhoEndDificil = torreEndDificil.childElementCount
+
+    oqueFazerDificil.innerText = "Selecione um disco"
+
+    somaDificil = 0
+    contMovimentoDificil.innerText = "Contador:"
+})
+
+boxVisorTorresDificil.appendChild(resetarDificil)
+
+let resetarTudo = document.createElement("button")
+resetarTudo.innerText = "Voltar à Página Inicial"
+
+resetarTudo.addEventListener("click", function(){
+    torreStart.appendChild(discoBemGrande)
+    torreStart.appendChild(discoMaior)
+    torreStart.appendChild(discoMedio)
+    torreStart.appendChild(discoMenor)
+
+    arrayFilhos = []
+    arrayPais = []
+
+    filhoStart = torreStart.childElementCount
+    filhoOffset = torreOffset.childElementCount
+    filhoEnd = torreEnd.childElementCount
+
+    oqueFazer.innerText = "Selecione um disco"
+
+    soma = 0
+    contMovimento.innerText = "Contador:"
+
+    torreStartFacil.appendChild(discoMaiorFacil)
+    torreStartFacil.appendChild(discoMedioFacil)
+    torreStartFacil.appendChild(discoMenorFacil)
+
+    arrayFilhosFacil = []
+    arrayPaisFacil = []
+
+    filhoStartFacil = torreStartFacil.childElementCount
+    filhoOffsetFacil = torreOffsetFacil.childElementCount
+    filhoEndFacil = torreEndFacil.childElementCount
+
+    oqueFazerFacil.innerText = "Selecione um disco"
+
+    somaFacil = 0
+    contMovimentoFacil.innerText = "Contador:"
+
+    torreStartDificil.appendChild(discoColossal)
+    torreStartDificil.appendChild(discoBemGrandeDificil)
+    torreStartDificil.appendChild(discoMaiorDificil)
+    torreStartDificil.appendChild(discoMedioDificil)
+    torreStartDificil.appendChild(discoMenorDificil)
+
+    arrayFilhosDificil = []
+    arrayPaisDificil = []
+
+    filhoStartDificil = torreStartDificil.childElementCount
+    filhoOffsetDificil = torreOffsetDificil.childElementCount
+    filhoEndDificil = torreEndDificil.childElementCount
+
+    oqueFazerDificil.innerText = "Selecione um disco"
+
+    somaDificil = 0
+    contMovimentoDificil.innerText = "Contador:"
+
+    jogoDificil.classList.add("esconde")
+    jogoFacil.classList.add("esconde")
+    jogoMedio.classList.add("esconde")
+    for(let i = 0; i < todosBotoes.length; i++){
+        todosBotoes[i].classList.remove("esconde")
+    }
+})
 
