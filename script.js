@@ -681,38 +681,6 @@ boxVisorTorresDificil.appendChild(contMovimentoDificil)
 
 //FIM GUILOPRETI
 
-//adiciona animação e borda no disco selecionado
-torreStart.addEventListener("click", function(){
-    torreStart.lastElementChild.style.border = "1px solid black"
-    torreStart.lastElementChild.style.transform = "translate(0, -20px)"
-})
-
-torreOffset.addEventListener("click", function(){
-    torreOffset.lastElementChild.style.transform = "translate(0, 0)"
-   
-})
-
-torreEnd.addEventListener("click", function(){
-    torreEnd.lastElementChild.style.transform = "translate(0, 0)"
-    torreStart.lastElementChild.style.transform = "translate(0, 0)"
-
-})
-//------------------------------------------------------
-
-
-// let botaoReset = document.createElement("button")
-// botaoReset.innerText = "Começar Novamente"
-
-// botaoReset.addEventListener("click", function(){
-//     jogoFacil.classList.add("esconde")
-//     jogoDificil.classList.add("esconde")
-//     jogoMedio.classList.add("esconde")
-//     for(let i = 0; i < todosBotoes.length; i++){
-//         todosBotoes[i].classList.remove("esconde")
-//     }
-// })
-
-// body.appendChild(botaoReset)
 
 let resetarMedio = document.createElement("button")
 resetarMedio.innerText = "Recomeçar Modo"
