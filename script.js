@@ -56,6 +56,38 @@ jogoMedio.appendChild(jogo)
 body.appendChild(jogoMedio)
 
 
+// estilo da base das torres
+const baseTorre = document.createElement("div")
+baseTorre.classList.add("baseTorre")
+
+
+const baseTexto = document.createElement("p")
+baseTexto.classList.add("baseTexto")
+
+baseTorre.appendChild(baseTexto)
+
+
+const boxVisorTorres = document.createElement("div")
+boxVisorTorres.classList.add("boxVisorTorres")
+
+//------------------------------------
+
+//seção da base e visor das torres
+const secaoBaseVisor = document.createElement("section")
+secaoBaseVisor.classList.add("secaoBaseVisor")
+//----------------------------------------------------
+
+//adiciona a base das torres, box do visor das torres e textos em uma seção
+secaoBaseVisor.appendChild(baseTorre)
+secaoBaseVisor.appendChild(boxVisorTorres)
+//--------------------------------------
+
+//adiciona a base das torres, box do visor das torres e textos com a body
+jogo.appendChild(secaoBaseVisor)
+
+baseTexto.innerText = "Torre de Hanói"
+//-------------------------------------
+
 const discoMaior = document.createElement("div")
 discoMaior.classList.add("discoLaranja")
 const discoMenor = document.createElement("div")
@@ -98,7 +130,9 @@ let filhoStart = torreStart.childElementCount
 torreStart.addEventListener("click", function(){
     arrayFilhos.push(torreStart.lastElementChild)
     arrayPais.push(torreStart)
+    
     if(arrayPais.length === 2){
+        
         adicionarUltimoFilho()
         oqueFazer.innerText = "Selecione um disco"
     }    
@@ -187,14 +221,14 @@ let oqueFazer = document.createElement("p")
 oqueFazer.innerText = "Selecione um disco"
 oqueFazer.classList.add("instruçao")
 
-jogoMedio.appendChild(oqueFazer)
+boxVisorTorres.appendChild(oqueFazer)
 
 let soma = 0
 let contMovimento = document.createElement("span")
 contMovimento.innerText = "Contador:"
 contMovimento.classList.add("contador")
 
-jogoMedio.appendChild(contMovimento)
+boxVisorTorres.appendChild(contMovimento)
 //FINALIZAÇÃO TORRE 4 DISCOS
 
 //CRIANDO MODO 3 DISCOS
@@ -527,4 +561,23 @@ jogoDificil.appendChild(contMovimentoDificil)
 //FINALIZAÇÃO TORRE 5 DISCOS
 
 //FIM GUILOPRETI
+
+//adiciona animação e borda no disco selecionado
+torreStart.addEventListener("click", function(){
+    torreStart.lastElementChild.style.border = "1px solid black"
+    torreStart.lastElementChild.style.transform = "translate(0, -20px)"
+})
+
+torreOffset.addEventListener("click", function(){
+    torreOffset.lastElementChild.style.transform = "translate(0, 0)"
+   
+})
+
+torreEnd.addEventListener("click", function(){
+    torreEnd.lastElementChild.style.transform = "translate(0, 0)"
+    torreStart.lastElementChild.style.transform = "translate(0, 0)"
+
+})
+//------------------------------------------------------
+
 

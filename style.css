@@ -4,14 +4,14 @@ body{
     /* display: flex; */
     height: 450px;
     max-width: 980px;
-    margin: 10px auto;
+    margin: 50px auto;
     background-image: url("puzzle.jpg"); 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     /* justify-content: space-around; */
     align-items: center;
-    border-radius: 5px;
+    flex-wrap: wrap;
 } 
 
 .esconde{
@@ -22,6 +22,7 @@ body{
     width: 100%;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 /*box onde vai ficar os discos ja posicionados*/
@@ -33,12 +34,18 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column-reverse;
-    background-color: black;
-
-
+    background-image: url("fundo-base.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px 10px 0 0 ;
+    box-shadow: 5px 5px #22212177;
+    border: 0.8px solid #00000071;
 }
 
-/* .vareta{
+
+/*
+ .vareta{
     width: 25px;
     height: 100%;
     background-image: linear-gradient(to right, #000000, #424141);
@@ -52,25 +59,32 @@ body{
     transition: all 3s;
 } */
 /*boxes dos discos*/
+
 .discoLaranja{
     width: 150px;
-    background-image: linear-gradient(to right, #965803, #FFA527);
-    height: 50px ;
-    border-radius: 8px;
+    background-image: linear-gradient(to right, #ff870c2e , #c542024f), url(fundo-base.jpg);
+    background-size: contain;
+    height: 50px;
+    border-radius: 12px;
+    box-shadow: 5px 0 #22212177;
     margin-left: -3px;
 }
 .discoVerde{
     width: 100px;
-    background-image: linear-gradient(to right, #041b00, #208011);
-    height: 50px ;
-    border-radius: 8px;
+    background-image: linear-gradient(to right,#0d420347, #0d420352), url(fundo-base.jpg);
+    background-size: contain;
+    height: 50px;
+    border-radius: 12px;
+    box-shadow: 5px 0 #22212177;
     margin-left: -3px;
 }
 .discoRoxo {
     width: 60px;
-    background-image: linear-gradient(to right, #580258, #b14db1);
-    height: 50px ;
-    border-radius: 8px;
+    background-image: linear-gradient(to right, #7412744f, #5c005c40), url(fundo-base.jpg);
+    background-size: contain;
+    height: 50px;
+    border-radius: 12px;
+    box-shadow: 5px 0 #22212177;
     margin-left: -3px;
 
 }
@@ -100,4 +114,46 @@ body{
 .contador{
     color: white;
     margin-left: 50px;
+}
+
+.secaoBaseVisor{
+    height: 500px;
+}
+
+/*box onde vai ficar os discos ja posicionados*/
+.baseTorre{
+    width: 1000px;
+    height: 50px;
+    margin-top: -1px;
+    border-radius: 8px;
+    background-image: url("fundo-base.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px #22212177;
+    border: 0.8px solid #00000071;
+    
+}
+.baseTexto{
+    font-size: 25px;
+    background-image: url("fundo-base.jpg");
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 0.8px #1a0c00;
+}
+.boxVisorTorres{
+    width: 1000px;
+    height: 150px;
+    margin-top: 15px;
+    background-image: url("fundo-base.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px;
+    box-shadow: 5px 5px #22212177;
+    border: 0.8px solid #00000071;
 }
