@@ -1,6 +1,7 @@
 /*centraliza o body e aplica um fundo ao body*/
 
 body{
+    display: flex;
     max-width: 980px; 
     height: 450px;
     margin: 50px auto;
@@ -9,20 +10,26 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     justify-content: center;
+    align-items: center;
     
 } 
+/*botões do jogo*/
 button{
+    height: 50px;
     background-image: url("fundo-base.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-left: 25px;
     padding: 10px;
     box-shadow: 3px 3px #22212177;
     border: 0.8px solid #00000071;
     border-radius: 15px;
+    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     -webkit-text-stroke: 0.8px #1a0c00;
+    
 }
 button:hover{
     border: 2px solid #f3eeee71;
