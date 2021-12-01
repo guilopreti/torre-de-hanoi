@@ -29,7 +29,7 @@ body{
 
 .torre{
     width: 20px;
-    height: 400px;
+    height: 300px;
     /*border-right: 1px solid black; */
     display: flex;
     align-items: center;
@@ -106,18 +106,38 @@ body{
 
 .instruçao{
     text-align: center;
-    color: white;
-    margin-top: 50px;
-    font-weight: bold;
+    color: #4e2a1b;
+    /* font-weight: bold; */
+    background-image: url("fundo-base.jpg");
+    background-size: contain;
+    background-clip: text;
+    /* -webkit-background-clip: text; */
+    /* color: transparent; */
+    -webkit-text-stroke: 0.8px #000000;
+    /* background-color: white; */
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 5px;
 }
 
 .contador{
-    color: white;
-    margin-left: 50px;
+    text-align: center;
+    color: #4e2a1b;
+    /* font-weight: bold; */
+    background-image: url("fundo-base.jpg");
+    background-size: contain;
+    background-clip: text;
+    /* -webkit-background-clip: text; */
+    /* color: transparent; */
+    -webkit-text-stroke: 0.8px #000000;
+    /* background-color: white; */
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 5px;
 }
 
 .secaoBaseVisor{
-    height: 500px;
+    height: 250px;
 }
 
 /*box onde vai ficar os discos ja posicionados*/
@@ -146,6 +166,9 @@ body{
     -webkit-text-stroke: 0.8px #1a0c00;
 }
 .boxVisorTorres{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     width: 1000px;
     height: 150px;
     margin-top: 15px;
