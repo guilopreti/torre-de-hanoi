@@ -31,6 +31,16 @@ botaoDificil.addEventListener("click", function(){
 })
 //
 
+let voceVenceu = document.createElement("section")
+voceVenceu.classList.add("bloco-vitoria")
+voceVenceu.classList.add("esconde")
+let mensagemVitoria = document.createElement("div")
+mensagemVitoria.classList.add("msg-vitoria")
+
+let msgParabens = document.createElement("span")
+msgParabens.innerText = "Parabéns Você Venceu!!"
+
+
 //CRIAÇÃO TORRE 4 DISCOS
 const arrayBody = document.getElementsByTagName("body")
 const body = arrayBody[0]
@@ -153,9 +163,12 @@ torreStart.addEventListener("click", function(){
         filhoStart = torreStart.childElementCount
     }
     if(torreEnd.childElementCount === 4){
-        if(confirm("Você Venceu")){
-            window.location.reload()
-        }
+        jogoMedio.appendChild(voceVenceu)
+        voceVenceu.appendChild(mensagemVitoria)
+        mensagemVitoria.appendChild(msgParabens)
+        mensagemVitoria.appendChild(resetarTudo)
+        mensagemVitoria.appendChild(resetarMedio)
+        voceVenceu.classList.remove("esconde")
     }
 })
 
@@ -182,9 +195,12 @@ torreOffset.addEventListener("click", function(){
         filhoStart = torreStart.childElementCount
     }
     if(torreEnd.childElementCount === 4){
-        if(confirm("Você Venceu")){
-            window.location.reload()
-        }
+        jogoMedio.appendChild(voceVenceu)
+        voceVenceu.appendChild(mensagemVitoria)
+        mensagemVitoria.appendChild(msgParabens)
+        mensagemVitoria.appendChild(resetarTudo)
+        mensagemVitoria.appendChild(resetarMedio)
+        voceVenceu.classList.remove("esconde")
     }
 })
 
@@ -211,9 +227,12 @@ torreEnd.addEventListener("click", function(){
         filhoStart = torreStart.childElementCount
     }
     if(torreEnd.childElementCount === 4){
-        if(confirm("Você Venceu")){
-            window.location.reload()
-        }
+        jogoMedio.appendChild(voceVenceu)
+        voceVenceu.appendChild(mensagemVitoria)
+        mensagemVitoria.appendChild(msgParabens)
+        mensagemVitoria.appendChild(resetarTudo)
+        mensagemVitoria.appendChild(resetarMedio)
+        voceVenceu.classList.remove("esconde")
     }
 })
 
@@ -796,4 +815,6 @@ resetarTudo.addEventListener("click", function(){
         todosBotoes[i].classList.remove("esconde")
     }
 })
+
+console.log(voceVenceu.classList)
 

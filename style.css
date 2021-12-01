@@ -3,8 +3,9 @@
 body{
     display: flex;
     max-width: 980px; 
-    height: 450px;
-    margin: 50px auto;
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
     background-image: url("puzzle.jpg"); 
     background-position: center;
     background-repeat: no-repeat;
@@ -147,7 +148,7 @@ button:focus{
     -webkit-text-stroke: 0.2px #ac7704b7;
 }
 .secaoBaseVisor{
-    width: 980px;
+    width: 481px;
     height: 100px;
     display: flex;
     flex-wrap: wrap;
@@ -201,6 +202,96 @@ button:focus{
     border: 0.8px solid #00000071;
 }
 
+.bloco-vitoria{
+    background-color: rgb(0, 0, 0, 0.7);
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    padding: 15px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.msg-vitoria{
+display: flex;
+flex-direction: row;
+align-items: center;
+width: 67%;
+overflow: auto;
+height: 100%;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.msg-vitoria span{
+height: 50px;
+background-image: url("fundo-base.jpg");
+background-position: center;
+background-size: cover;
+box-shadow: 3px 3px #22212177;
+border: 0.8px solid #00000071;
+border-radius: 15px;
+font-size: 20px;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+-webkit-text-stroke: 0.8px #1a0c00;
+width: 70%;
+text-align: center;
+padding-top: 25px;
+}
+
+.msg-vitoria button{
+height: 50px;
+background-image: url("fundo-base.jpg");
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+/* margin-left: 25px; */
+padding: 10px;
+box-shadow: 3px 3px #22212177;
+border: 0.8px solid #00000071;
+border-radius: 15px;
+font-size: 20px;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+-webkit-text-stroke: 0.8px #1a0c00;
+width: 40%;
+font-size: 16px;
+}
+
+@media (min-width: 552px) {
+    .secaoBaseVisor{
+        width: 520px
+    }
+}
+
+@media (min-width: 591px) {
+    .secaoBaseVisor{
+        width: 575px
+    }
+}
+
+@media (min-width: 646px) {
+    .secaoBaseVisor{
+        width: 630px
+    }
+}
+
+@media (min-width: 701px) {
+    .secaoBaseVisor{
+        width: 680px
+    }
+}
+
+@media (min-width: 751px) {
+    .secaoBaseVisor{
+        width: 729px
+    }
+}
 
 @media (min-width: 800px){
     .torre{
@@ -230,6 +321,7 @@ button:focus{
         height: 50px ;
     } 
     .secaoBaseVisor{
+        width: 97vw;
         height: 100px;
     }
     
@@ -238,10 +330,19 @@ button:focus{
         font-size: 25px;
     }
     
-
+    .msg-vitoria button{
+        font-size: 17px;
+    }
 
 }
 
-
+@media (min-width: 1000px) {
+    .secaoBaseVisor{
+        width: 980px
+    }
+    .msg-vitoria button{
+        font-size: 21px;
+    }
+}
 
 
