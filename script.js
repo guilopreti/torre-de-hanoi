@@ -44,6 +44,10 @@ mensagemVitoria.classList.add("msg-vitoria")
 let msgParabens = document.createElement("span")
 msgParabens.innerText = "Parabéns Você Venceu!!"
 
+voceVenceu.appendChild(mensagemVitoria)
+mensagemVitoria.appendChild(msgParabens)
+
+let classesVcVenceu = voceVenceu.classList
 
 //CRIAÇÃO TORRE 4 DISCOS
 const arrayBody = document.getElementsByTagName("body")
@@ -193,8 +197,6 @@ torreStart.addEventListener("click", function(){
     }
     if(torreEnd.childElementCount === 4){
         jogoMedio.appendChild(voceVenceu)
-        voceVenceu.appendChild(mensagemVitoria)
-        mensagemVitoria.appendChild(msgParabens)
         mensagemVitoria.appendChild(resetarTudo)
         mensagemVitoria.appendChild(resetarMedio)
         voceVenceu.classList.remove("esconde")
@@ -225,8 +227,6 @@ torreOffset.addEventListener("click", function(){
     }
     if(torreEnd.childElementCount === 4){
         jogoMedio.appendChild(voceVenceu)
-        voceVenceu.appendChild(mensagemVitoria)
-        mensagemVitoria.appendChild(msgParabens)
         mensagemVitoria.appendChild(resetarTudo)
         mensagemVitoria.appendChild(resetarMedio)
         voceVenceu.classList.remove("esconde")
@@ -257,8 +257,6 @@ torreEnd.addEventListener("click", function(){
     }
     if(torreEnd.childElementCount === 4){
         jogoMedio.appendChild(voceVenceu)
-        voceVenceu.appendChild(mensagemVitoria)
-        mensagemVitoria.appendChild(msgParabens)
         mensagemVitoria.appendChild(resetarTudo)
         mensagemVitoria.appendChild(resetarMedio)
         voceVenceu.classList.remove("esconde")
@@ -396,9 +394,10 @@ torreStartFacil.addEventListener("click", function(){
         filhoStartFacil = torreStartFacil.childElementCount
     }
     if(torreEndFacil.childElementCount === 3){
-        if(confirm("Você Venceu")){
-            window.location.reload()
-        }
+        jogoFacil.appendChild(voceVenceu)
+        mensagemVitoria.appendChild(resetarTudo)
+        mensagemVitoria.appendChild(resetarFacil)
+        voceVenceu.classList.remove("esconde")
     }
 })
 
@@ -425,9 +424,10 @@ torreOffsetFacil.addEventListener("click", function(){
         filhoStartFacil = torreStartFacil.childElementCount
     }
     if(torreEndFacil.childElementCount === 3){
-        if(confirm("Você Venceu")){
-            window.location.reload()
-        }
+        jogoFacil.appendChild(voceVenceu)
+        mensagemVitoria.appendChild(resetarTudo)
+        mensagemVitoria.appendChild(resetarFacil)
+        voceVenceu.classList.remove("esconde")
     }
 })
 
@@ -454,9 +454,10 @@ torreEndFacil.addEventListener("click", function(){
         filhoStartFacil = torreStartFacil.childElementCount
     }
     if(torreEndFacil.childElementCount === 3){
-        if(confirm("Você Venceu")){
-            window.location.reload()
-        }
+        jogoFacil.appendChild(voceVenceu)
+        mensagemVitoria.appendChild(resetarTudo)
+        mensagemVitoria.appendChild(resetarFacil)
+        voceVenceu.classList.remove("esconde")
     }
 })
 
@@ -596,9 +597,10 @@ torreStartDificil.addEventListener("click", function(){
         filhoStartDificil = torreStartDificil.childElementCount
     }
     if(torreEndDificil.childElementCount === 5){
-        if(confirm("Você Venceu")){
-            window.location.reload()
-        }
+        jogoDificil.appendChild(voceVenceu)
+        mensagemVitoria.appendChild(resetarTudo)
+        mensagemVitoria.appendChild(resetarDificil)
+        voceVenceu.classList.remove("esconde")
     }
 })
 
@@ -625,9 +627,10 @@ torreOffsetDificil.addEventListener("click", function(){
         filhoStartDificil = torreStartDificil.childElementCount
     }
     if(torreEndDificil.childElementCount === 5){
-        if(confirm("Você Venceu")){
-            window.location.reload()
-        }
+        jogoDificil.appendChild(voceVenceu)
+        mensagemVitoria.appendChild(resetarTudo)
+        mensagemVitoria.appendChild(resetarDificil)
+        voceVenceu.classList.remove("esconde")
     }
 })
 
@@ -654,9 +657,10 @@ torreEndDificil.addEventListener("click", function(){
         filhoStartDificil = torreStartDificil.childElementCount
     }
     if(torreEndDificil.childElementCount === 5){
-        if(confirm("Você Venceu")){
-            window.location.reload()
-        }
+        jogoDificil.appendChild(voceVenceu)
+        mensagemVitoria.appendChild(resetarTudo)
+        mensagemVitoria.appendChild(resetarDificil)
+        voceVenceu.classList.remove("esconde")
     }
 })
 
@@ -730,6 +734,12 @@ resetarMedio.addEventListener("click", function(){
 
     soma = 0
     contMovimento.innerText = "Contador:"
+
+    if(classesVcVenceu.length === 1){
+        voceVenceu.classList.add("esconde")
+        boxVisorTorres.appendChild(resetarMedio)
+        boxVisorTorres.appendChild(resetarTudo)
+    }
 })
 
 boxVisorTorres.appendChild(resetarMedio)
@@ -753,6 +763,12 @@ resetarFacil.addEventListener("click", function(){
 
     somaFacil = 0
     contMovimentoFacil.innerText = "Contador:"
+
+    if(classesVcVenceu.length === 1){
+        voceVenceu.classList.add("esconde")
+        boxVisorTorresFacil.appendChild(resetarFacil)
+        boxVisorTorresFacil.appendChild(resetarTudo)
+    }
 })
 
 boxVisorTorresFacil.appendChild(resetarFacil)
@@ -778,6 +794,12 @@ resetarDificil.addEventListener("click", function(){
 
     somaDificil = 0
     contMovimentoDificil.innerText = "Contador:"
+
+    if(classesVcVenceu.length === 1){
+        voceVenceu.classList.add("esconde")
+        boxVisorTorresDificil.appendChild(resetarDificil)
+        boxVisorTorresDificil.appendChild(resetarTudo)
+    }
 })
 
 boxVisorTorresDificil.appendChild(resetarDificil)
@@ -844,7 +866,14 @@ resetarTudo.addEventListener("click", function(){
     for(let i = 0; i < todosBotoes.length; i++){
         todosBotoes[i].classList.remove("esconde")
     }
+
+    if(classesVcVenceu.length === 1){
+        voceVenceu.classList.add("esconde")
+        boxVisorTorres.appendChild(resetarMedio)
+        boxVisorTorresFacil.appendChild(resetarFacil)
+        boxVisorTorresDificil.appendChild(resetarDificil)
+    }
 })
 
-console.log(voceVenceu.classList)
+console.log(classesVcVenceu)
 
